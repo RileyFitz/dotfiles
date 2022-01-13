@@ -1,16 +1,19 @@
-bold=$(tput bold);
-reset=$(tput sgr0);
-green=$(tput setaf 71);
-orange=$(tput setaf 166);
-white=$(tput setaf 15);
-yellow=$(tput setaf 228);
+# Add `~/bin` to the `$PATH`
+export PATH="$HOME/bin:$PATH";
 
-PS1="\[${bold}\]\n"; # newline
-PS1+="\[${orange}\]\u"; # username
-PS1+="\[${white}\] at ";
-PS1+="\[${yellow}\]\h"; # host
-PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\W"; # working directory
-PS1+="\n"; # newline
-PS1+="\[${white}\]$ \[${reset}\]"
-export PS1;
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{bash_prompt,exports,aliases,functions}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
