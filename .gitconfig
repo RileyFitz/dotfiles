@@ -1,0 +1,6 @@
+[user]
+	email = rileyfitzgibbons@gmail.com
+	name = riley fitz
+[core]
+	excludesfile = /home/rfitz/.gitignore_global
+	editor = /usr/bin/vim
