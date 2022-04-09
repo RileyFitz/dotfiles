@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# If no name variables was passed, name session 'main'.
+if [ -z $1 ]
+then
+	SESSION="main"
+else
+	SESSION=$1
+fi
+
+SESSIONEXISTS=$(tmux ls | grep $SESSION)
+if [ "$SESSIONEXISTS" = "" ]
+then
+	# Create new session with bpytop and rename it
+	tmux new-session -d -s $SESSION 'cd ~/Projects/bpytop/; source bin/activate; bpytop; '
+	tmux rename-window -t 0 'bpytop'
+
+	# Create a new working window.
+	tmux new-window -t $SESSION -n 'bash'
+fi
+
+tmux attach-session -t $SESSION:1

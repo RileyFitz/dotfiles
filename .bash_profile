@@ -17,3 +17,6 @@ shopt -s histappend;
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
+
+# Add '~/bin/' to PATH for scripts.
+export PATH=$PATH:~/bin
