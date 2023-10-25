@@ -1,6 +1,52 @@
 [user]
 	email = rileyfitzgibbons@gmail.com
 	name = riley fitz
+	signingkey = 941F0E775E7E34BC
+[init]
+	defaultBranch = main
 [core]
 	excludesfile = /home/rfitz/.gitignore_global
 	editor = /usr/bin/vim
+[credential "https://github.com"]
+        helper = !/usr/bin/gh auth git-credential
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = True
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[alias]
+	# Add
+	a = add --all
+	ap = add -p
+	# Branch
+	ba = branch -av
+	bc = checkout -b 
+	bd = branch -d
+	# Commit
+	cm = commit -m
+	# Diff
+	d = diff
+	ds = diff --staged
+	# Log
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	# Stash
+	sa = stash --apply
+	sl = stash --list
+	# Status
+	st = status
