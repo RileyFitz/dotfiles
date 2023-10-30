@@ -30,6 +30,9 @@
 	changed = yellow bold
 	untracked = red bold
 [alias]
+	# Advanced
+	alias = config --get-regexp '^alias\.'
+	unstage = restore --staged
 	# Add
 	a = add --all
 	ap = add -p
@@ -49,4 +52,7 @@
 	sa = stash --apply
 	sl = stash --list
 	# Status
-	st = status
+	s = -ab
+[help]
+	# Autocorrect cmds
+	autocorrect = 1
